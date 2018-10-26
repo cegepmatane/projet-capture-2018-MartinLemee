@@ -24,8 +24,22 @@ var repondre = async function(requete, reponse)
 
     if('POST' === requete.method)
     {
+        var uri = '';
+        requete.on('data', function(message){ uri += message;});
+        requete.on('end', function()
+        {
+          uri = decodeURI(uri);
+          uri = uri.replace(/%3A/g, ":").replace(/%2C/g,",");
+          [cle, temperature] = uri.split("=");
+          console.log(temperature);
+          temperature = JSON.parse(temperature).temperature; // recupere la racine
+          console.log("Temperature : " + temperature.temperature);
+          console.log(JSON.stringify(temperature));
+          temperatureDAO.ajouterMouton(temperature);//await
+        });
 
     }
+    reponse.end('');
 }
 
 var serveur = http.createServer(repondre);
