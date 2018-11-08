@@ -1,0 +1,25 @@
+{
+  "name": "ProjetTemperature",
+  "version": "1.0.0",
+  "description": "Martin, Gabriel, Valere, Alexandre",
+  "main": "TemperatureDAO.js",
+  "dependencies": {
+    "await": "^0.2.6",
+    "pg": "^7.6.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cegepmatane/projet-capture-2018-Temperature.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cegepmatane/projet-capture-2018-Temperature/issues"
+  },
+  "homepage": "https://github.com/cegepmatane/projet-capture-2018-Temperature#readme"
+}

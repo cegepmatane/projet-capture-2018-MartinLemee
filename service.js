@@ -16,9 +16,9 @@ var repondre = async function(requete, reponse)
 			       numero = trouvailles[1];
 			       console.log('match une seule temperature ' + numero);
 
-			       var temperature = await TemperatureDAO.chercherTemperature(numero);
-			       console.log('temperature reçu de la base ' + JSON.stringify(temperature));
-			       reponse.end(JSON.stringify(temperature));
+			       var capteurtemperature = await temperatureDAO.chercherTemperature(numero);
+			       console.log('temperature reçu de la base ' + JSON.stringify(capteurtemperature));
+			       reponse.end(JSON.stringify(capteurtemperature));
 		     }
     }
 
@@ -28,14 +28,14 @@ var repondre = async function(requete, reponse)
         requete.on('data', function(message){ uri += message;});
         requete.on('end', function()
         {
-          uri = decodeURI(uri);
-          uri = uri.replace(/%3A/g, ":").replace(/%2C/g,",");
-          [cle, temperature] = uri.split("=");
-          console.log(temperature);
-          temperature = JSON.parse(temperature).temperature; // recupere la racine
-          console.log("Temperature : " + temperature.temperature);
-          console.log(JSON.stringify(temperature));
-          temperatureDAO.ajouterMouton(temperature);//await
+            uri = decodeURI(uri);
+            uri = uri.replace(/%3A/g, ":").replace(/%2C/g,",");
+            [cle, capteurtemperature] = uri.split("=");
+            console.log(capteurtemperature);
+            temperature = JSON.parse(capteurtemperature).capteurtemperature; // recupere la racine
+            console.log("Temperature : " + capteurtemperature.temperature);
+            console.log(JSON.stringify(capteurtemperature));
+            temperatureDAO.ajouterTemperature(capteurtemperature);//await
         });
 
     }
