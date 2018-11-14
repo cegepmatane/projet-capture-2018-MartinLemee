@@ -1,4 +1,4 @@
 var VueJour = (function(){
-	var vueJour = document.getElementById("vue-jour").innerHTML;
+	var vueJour = document.getElementById("page-liste-temperature-jour").innerHTML;
 	
 })();

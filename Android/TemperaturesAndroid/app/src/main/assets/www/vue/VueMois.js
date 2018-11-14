@@ -1,4 +1,4 @@
 var VueMois = (function(){
-	var vueMois = document.getElementById("vue-mois").innerHTML;
+	var vueMois = document.getElementById("page-liste-temperature-mois").innerHTML;
 	
 })();
