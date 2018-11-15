@@ -20,24 +20,16 @@ public class VueAnnee extends Scene {
 	private Button boutonJour, boutonMois;
 	
 	public VueAnnee() {
-		super(new VBox(), 400, 400);
-		VBox panneau = (VBox) this.getRoot();
-		grilleTemperature = new GridPane();
+		super(new GridPane(),400,400);
+		grilleTemperature = (GridPane)this.getRoot();
 		this.boutonMois = new Button("Mois");
 		this.boutonJour = new Button("Jour");
-	}
-	
-	public void afficherListeEquipes(List<Temperature> listeTemperatures) {
+		
 		this.grilleTemperature.getChildren().clear();
 		this.grilleTemperature.add(new Label("Mois"),0,0);
 		this.grilleTemperature.add(new Label("Temperature(°C)"),1,0);
-		//this.grilleTemperature.add(new Label(""), 4, 0);
-		int position=1;
-		for(Temperature temperature:listeTemperatures) {
-			position++;
-			this.grilleTemperature.add(new Label(""+temperature.getDate().getMonth()), 0, position);
-			this.grilleTemperature.add(new Label(""+temperature.getTemperature()), 1, position);
-		}
+		
+		int position = 1;
 		this.boutonJour.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
@@ -52,6 +44,33 @@ public class VueAnnee extends Scene {
 		});
 		this.grilleTemperature.add(this.boutonJour, 1, ++position);
 		this.grilleTemperature.add(this.boutonMois, 2, ++position);
+	}
+	
+	public void afficherListeEquipes(List<Temperature> listeTemperatures) {
+		/*this.grilleTemperature.getChildren().clear();
+		this.grilleTemperature.add(new Label("Mois"),0,0);
+		this.grilleTemperature.add(new Label("Temperature(°C)"),1,0);*/
+		//this.grilleTemperature.add(new Label(""), 4, 0);
+		int position=1;
+		for(Temperature temperature:listeTemperatures) {
+			position++;
+			this.grilleTemperature.add(new Label(""+temperature.getDate().getMonth()), 0, position);
+			this.grilleTemperature.add(new Label(""+temperature.getTemperature()), 1, position);
+		}
+		/*this.boutonJour.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				controleur.notifierNaviguerVueJour();
+			}
+		});
+		this.boutonMois.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				controleur.notifierNaviguerVueMois();
+			}
+		});
+		this.grilleTemperature.add(this.boutonJour, 1, ++position);
+		this.grilleTemperature.add(this.boutonMois, 2, ++position);*/
 	}
 	
 	public void setControleur(ControleurTemperature controleur) {

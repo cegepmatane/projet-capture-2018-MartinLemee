@@ -1,5 +1,9 @@
 package action;
 
+import java.util.List;
+
+import donnees.TemperatureDAO;
+import modele.Temperature;
 import vue.NavigateurDesVues;
 import vue.VueAnnee;
 import vue.VueJour;
@@ -10,6 +14,7 @@ public class ControleurTemperature {
 	private VueAnnee vueAnnee;
 	private VueMois vueMois;
 	private VueJour vueJour;
+	private TemperatureDAO temperatureDAO;
 	
 	public ControleurTemperature() {
 		
@@ -40,5 +45,9 @@ public class ControleurTemperature {
 		this.vueAnnee = navigateur.getVueAnnee();
 		this.vueMois = navigateur.getVueMois();
 		this.vueJour = navigateur.getVueJour();
+		
+		//List<Temperature> listeTemperatures = temperatureDAO.montrerListeTemperature();
+		//vueJour.afficherListeTemperatures(listeTemperatures);
+		//this.navigateur.naviguerVersVueJour();
 	}
 }

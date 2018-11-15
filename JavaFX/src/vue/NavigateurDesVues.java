@@ -12,7 +12,7 @@ public class NavigateurDesVues extends Application{
 	private VueJour vueJour;
 	private ControleurTemperature controleur;
 	
-	public void NavigateurDesVues() {
+	public NavigateurDesVues() {
 		this.vueAnnee = new VueAnnee();
 		this.vueMois = new VueMois();
 		this.vueJour = new VueJour();
@@ -20,14 +20,14 @@ public class NavigateurDesVues extends Application{
 	
 	@Override
 	public void start(Stage stade) throws Exception {
-		this.stade=stade;
-		stade.setScene(null);
-		stade.show();
 		this.controleur = ControleurTemperature.getInstance();
 		controleur.afficherVues(this);
 		this.vueAnnee.setControleur(controleur);
 		this.vueMois.setControleur(controleur);
 		this.vueJour.setControleur(controleur);
+		this.stade=stade;
+		stade.setScene(this.vueJour);
+		stade.show();
 	}
 
 	public VueAnnee getVueAnnee() {
