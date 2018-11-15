@@ -1,5 +1,6 @@
 package vue;
 
+import action.ControleurTemperature;
 import javafx.application.*;
 import javafx.stage.Stage;
 
@@ -9,6 +10,7 @@ public class NavigateurDesVues extends Application{
 	private VueAnnee vueAnnee;
 	private VueMois vueMois;
 	private VueJour vueJour;
+	private ControleurTemperature controleur;
 	
 	public void NavigateurDesVues() {
 		this.vueAnnee = new VueAnnee();
@@ -21,6 +23,11 @@ public class NavigateurDesVues extends Application{
 		this.stade=stade;
 		stade.setScene(null);
 		stade.show();
+		this.controleur = ControleurTemperature.getInstance();
+		controleur.afficherVues(this);
+		this.vueAnnee.setControleur(controleur);
+		this.vueMois.setControleur(controleur);
+		this.vueJour.setControleur(controleur);
 	}
 
 	public VueAnnee getVueAnnee() {
