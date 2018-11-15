@@ -17,7 +17,7 @@ public class ControleurTemperature {
 	private TemperatureDAO temperatureDAO;
 	
 	public ControleurTemperature() {
-		
+		temperatureDAO = new TemperatureDAO();
 	}
 
 	private static ControleurTemperature instance = null;
@@ -46,8 +46,8 @@ public class ControleurTemperature {
 		this.vueMois = navigateur.getVueMois();
 		this.vueJour = navigateur.getVueJour();
 		
-		//List<Temperature> listeTemperatures = temperatureDAO.montrerListeTemperature();
-		//vueJour.afficherListeTemperatures(listeTemperatures);
-		//this.navigateur.naviguerVersVueJour();
+		/*List<Temperature> listeTemperatures = temperatureDAO.montrerListeTemperature();
+		vueJour.afficherListeTemperature(listeTemperatures);
+		this.navigateur.naviguerVersVueJour();*/
 	}
 }

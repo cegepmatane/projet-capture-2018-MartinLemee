@@ -1,5 +1,6 @@
 package donnees;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -9,7 +10,7 @@ private Connection connection = null;
 	
 	private BaseDeDonnees()
 	{
-		try {
+		/*try {
 			Class.forName(Acces.BASEDEDONNEES_DRIVER);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -18,7 +19,7 @@ private Connection connection = null;
 			connection = DriverManager.getConnection(Acces.BASEDEDONNEES_URL, Acces.BASEDEDONNEES_USAGER, Acces.BASEDEDONNEES_MOTDEPASSE);
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
+		}*/
 	}
 	
 	private static BaseDeDonnees instance = null;

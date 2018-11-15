@@ -27,6 +27,7 @@ public class NavigateurDesVues extends Application{
 		this.vueJour.setControleur(controleur);
 		this.stade=stade;
 		stade.setScene(this.vueJour);
+		//stade.setScene(null);
 		stade.show();
 	}
 
