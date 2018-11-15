@@ -23,6 +23,18 @@ public class ControleurTemperature {
 		return instance;
 	}
 	
+	public void notifierNaviguerVueJour(){
+		this.navigateur.naviguerVersVueJour();
+	}
+	
+	public void notifierNaviguerVueMois(){
+		this.navigateur.naviguerVersVueMois();
+	}
+	
+	public void notifierNaviguerVueAnnee(){
+		this.navigateur.naviguerVersVueAnnee();
+	}
+	
 	public void afficherVues(NavigateurDesVues navigateur) {
 		this.navigateur = navigateur;
 		this.vueAnnee = navigateur.getVueAnnee();
