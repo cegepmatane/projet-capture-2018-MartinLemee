@@ -38,7 +38,7 @@ exports.ajouterTemperature = async function(temperature)
     console.log("TemperatureDAO.ajouterTemperature()");
     var basededonnees = new postgresql.Client(chaineDeConnection);
     await basededonnees.connect();
-    var sql = 'INSERT INTO capteurtemperature(temperature) VALUES('+ temperature + ')';
+    var sql = 'INSERT INTO capteurtemperature(temperature, moment) VALUES('+ temperature + ', "now")';
     console.log(sql);
     var curseurListeTemperature = await basededonnees.query(sql);
 	  var temperature = curseurListeTemperature.rows[0];
