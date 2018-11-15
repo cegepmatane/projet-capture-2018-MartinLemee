@@ -1,8 +1,4 @@
 RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-
-
 
 RewriteRule ^(20[0-4][0-9]|2050)/?$ xml/annee.php?annee=$1
 RewriteRule ^(20[0-4][0-9]|2050)[-/](0?[1-9]|1[0-2])/?$ xml/mois.php?annee=$1&mois=$2

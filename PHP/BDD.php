@@ -1,10 +1,7 @@
 <?php
-
     $usager = 'root';
-    $motdepasse = 'qwerty';
+    $motdepasse = 'root';
     $hote = 'localhost';
     $base = 'meteo';
-    $dsn = 'mysql:dbname='.$base.';host=' . $hote;
-    $basededonnees = new PDO($dsn, $usager, $motdepasse);
-
+    $basededonnees = new PDO('pgsql:dbname='.$base.' host='.$hote.'', $usager, $motdepasse);
 ?>

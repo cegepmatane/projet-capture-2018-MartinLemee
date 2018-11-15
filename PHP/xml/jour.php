@@ -5,14 +5,6 @@
 	
 	include ("../BDD.php");
 
-
-/*SELECT AVG(valeur) as TemperatureMoyenne, MAX(valeur) as TemperatureMaximum, MIN(valeur) as TemperatureMinimun, MONTH(moment) as mois FROM temperature WHERE YEAR(moment) = 2018 GROUP BY MONTH(moment) 
-UNION 
-SELECT AVG(valeur) as TemperatureMoyenne, MAX(valeur) as TemperatureMaximum, MIN(valeur) as TemperatureMinimun, 'TOUS' as mois FROM temperature WHERE YEAR(moment) = 2018  
-mais plutot
-SELECT valeur, YEAR(moment) as annee, MONTH(moment) as mois, DAY(moment) as jour, HOUR(moment) as heure FROM temperature WHERE YEAR(moment) = 2018 AND MONTH(moment) = 9 AND DAY(moment) = 5 
-*/
-
 	$sql = "SELECT valeur, YEAR(moment) as annee, MONTH(moment) as mois, DAY(moment) as jour, HOUR(moment) as heure FROM temperature WHERE YEAR(moment) = ".$_GET['annee']." AND MONTH(moment) = ".$_GET['mois']." AND DAY(moment) = ".$_GET['jour']." ";
 	$requeteListeTemperature = $basededonnees->prepare($sql);
 	$requeteListeTemperature->execute();
