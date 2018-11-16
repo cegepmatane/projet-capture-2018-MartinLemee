@@ -5,7 +5,7 @@
 	
 	include ("../BDD.php");
 
-	$sql = "SELECT valeur, YEAR(moment) as annee, MONTH(moment) as mois, DAY(moment) as jour, HOUR(moment) as heure FROM temperature WHERE YEAR(moment) = ".$_GET['annee']." AND MONTH(moment) = ".$_GET['mois']." AND DAY(moment) = ".$_GET['jour']." ";
+	$sql = "SELECT temperature, to_char(moment, 'YYYY') as annee, to_char(moment, 'MM') as mois, to_char(moment, 'DD') as jour, to_char(moment, 'HH24') as heure FROM capteurtemperature WHERE to_char(moment, 'YYYY') like '".$_GET['annee']."' AND to_char(moment, 'MM') like '".$_GET['mois']."' AND to_char(moment, 'DD') like '".$_GET['jour']."';";
 	$requeteListeTemperature = $basededonnees->prepare($sql);
 	$requeteListeTemperature->execute();
 	$listeTemperature = $requeteListeTemperature->fetchAll(PDO::FETCH_OBJ);
@@ -18,7 +18,7 @@
 	<?php foreach($listeTemperature as $temperature) 
 	{ ?>
 	<heure><?=$temperature->heure?></heure>
-	<temperature><?=$temperature->valeur?></temperature>
+	<temperature><?=$temperature->temperature?></temperature>
 	<?php } ?>
 </meteo>
 
