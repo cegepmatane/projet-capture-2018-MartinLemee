@@ -5,8 +5,11 @@
 	
 	include ("../BDD.php");
 
-	$sql = "SELECT temperature, to_char(moment, 'YYYY') as annee, to_char(moment, 'MM') as mois, to_char(moment, 'DD') as jour, to_char(moment, 'HH24') as heure FROM capteurtemperature WHERE to_char(moment, 'YYYY') like '".$_GET['annee']."' AND to_char(moment, 'MM') like '".$_GET['mois']."' AND to_char(moment, 'DD') like '".$_GET['jour']."';";
+	$sql = "SELECT temperature, to_char(moment, 'YYYY') as annee, to_char(moment, 'MM') as mois, to_char(moment, 'DD') as jour, to_char(moment, 'HH24') as heure FROM capteurtemperature WHERE to_char(moment, 'YYYY') like :annee AND to_char(moment, 'MM') like :mois AND to_char(moment, 'DD') like :jour;";
 	$requeteListeTemperature = $basededonnees->prepare($sql);
+	$requeteListeTemperature->bindParam(':annee',  $_GET['annee']);
+	$requeteListeTemperature->bindParam(':mois',  $_GET['mois']);
+	$requeteListeTemperature->bindParam(':jour',  $_GET['jour']);
 	$requeteListeTemperature->execute();
 	$listeTemperature = $requeteListeTemperature->fetchAll(PDO::FETCH_OBJ);
 	//print_r($listeTemperature);

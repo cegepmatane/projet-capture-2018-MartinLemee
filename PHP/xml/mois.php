@@ -5,8 +5,10 @@
 	
 	include ("../BDD.php");
 
-	$sql = "SELECT AVG(temperature) as TemperatureMoyenne, MAX(temperature) as TemperatureMaximum, MIN(temperature) as TemperatureMinimun, to_char(moment, 'DD') as jour FROM capteurtemperature WHERE to_char(moment, 'YYYY') like '".$_GET['annee']."' AND to_char(moment, 'MM') like '".$_GET['mois']."' GROUP BY to_char(moment, 'DD');";
+	$sql = "SELECT AVG(temperature) as TemperatureMoyenne, MAX(temperature) as TemperatureMaximum, MIN(temperature) as TemperatureMinimun, to_char(moment, 'DD') as jour FROM capteurtemperature WHERE to_char(moment, 'YYYY') like :annee AND to_char(moment, 'MM') like :mois GROUP BY to_char(moment, 'DD');";
 	$requeteListeTemperature = $basededonnees->prepare($sql);
+	$requeteListeTemperature->bindParam(':annee',  $_GET['annee']);
+	$requeteListeTemperature->bindParam(':mois',  $_GET['mois']);
 	$requeteListeTemperature->execute();
 	$listeTemperature = $requeteListeTemperature->fetchAll(PDO::FETCH_OBJ);
 	//print_r($listeTemperature);
