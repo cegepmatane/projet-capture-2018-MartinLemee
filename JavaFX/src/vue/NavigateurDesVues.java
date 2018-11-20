@@ -6,13 +6,18 @@ import javafx.stage.Stage;
 
 public class NavigateurDesVues extends Application{
 
+	private ControleurTemperature controleur;
 	private Stage stade;
+	
+	private VueAccueil vueAccueil;
 	private VueAnnee vueAnnee;
 	private VueMois vueMois;
 	private VueJour vueJour;
-	private ControleurTemperature controleur;
 	
 	public NavigateurDesVues() {
+		System.out.println("NavigateurDesVues : NavigateurDesVues()");
+		
+		this.vueAccueil = new VueAccueil(); 
 		this.vueAnnee = new VueAnnee();
 		this.vueMois = new VueMois();
 		this.vueJour = new VueJour();
@@ -20,17 +25,26 @@ public class NavigateurDesVues extends Application{
 	
 	@Override
 	public void start(Stage stade) throws Exception {
+		System.out.println("NavigateurDesVues : start");
+		
+		this.stade=stade;
+		stade.setTitle("Station météo");
+		
 		this.controleur = ControleurTemperature.getInstance();
 		controleur.afficherVues(this);
+		
 		this.vueAnnee.setControleur(controleur);
 		this.vueMois.setControleur(controleur);
 		this.vueJour.setControleur(controleur);
-		this.stade=stade;
-		stade.setScene(this.vueJour);
+		stade.setScene(this.vueAccueil);
 		//stade.setScene(null);
-		stade.show();
+		//stade.show();
 	}
 
+	public VueAccueil getVueAccueil() {
+		return vueAccueil;
+	}
+	
 	public VueAnnee getVueAnnee() {
 		return vueAnnee;
 	}
@@ -41,6 +55,11 @@ public class NavigateurDesVues extends Application{
 
 	public VueJour getVueJour() {
 		return vueJour;
+	}
+	
+	public void naviguerVersVueAccueil() {
+		stade.setScene(this.vueAccueil);
+		stade.show();
 	}
 	
 	public void naviguerVersVueAnnee() {
@@ -57,4 +76,6 @@ public class NavigateurDesVues extends Application{
 		stade.setScene(this.vueJour);
 		stade.show();
 	}
+	
+	
 }

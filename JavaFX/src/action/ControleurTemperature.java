@@ -5,12 +5,14 @@ import java.util.List;
 import donnees.TemperatureDAO;
 import modele.Temperature;
 import vue.NavigateurDesVues;
+import vue.VueAccueil;
 import vue.VueAnnee;
 import vue.VueJour;
 import vue.VueMois;
 
 public class ControleurTemperature {
 	private NavigateurDesVues navigateur;
+	private VueAccueil vueAccueil;
 	private VueAnnee vueAnnee;
 	private VueMois vueMois;
 	private VueJour vueJour;
@@ -28,6 +30,10 @@ public class ControleurTemperature {
 		return instance;
 	}
 	
+	public void notifierNaviguerVueAccueil(){
+		this.navigateur.naviguerVersVueAccueil();
+	}
+	
 	public void notifierNaviguerVueJour(){
 		this.navigateur.naviguerVersVueJour();
 	}
@@ -42,9 +48,12 @@ public class ControleurTemperature {
 	
 	public void afficherVues(NavigateurDesVues navigateur) {
 		this.navigateur = navigateur;
+		this.vueAccueil = navigateur.getVueAccueil();
 		this.vueAnnee = navigateur.getVueAnnee();
 		this.vueMois = navigateur.getVueMois();
 		this.vueJour = navigateur.getVueJour();
+		
+		this.navigateur.naviguerVersVueAccueil();
 		
 		/*List<Temperature> listeTemperatures = temperatureDAO.montrerListeTemperature();
 		vueJour.afficherListeTemperature(listeTemperatures);
