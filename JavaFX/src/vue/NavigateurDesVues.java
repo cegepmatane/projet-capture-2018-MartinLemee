@@ -33,6 +33,7 @@ public class NavigateurDesVues extends Application{
 		this.controleur = ControleurTemperature.getInstance();
 		controleur.afficherVues(this);
 		
+		this.vueAccueil.setControleur(controleur);
 		this.vueAnnee.setControleur(controleur);
 		this.vueMois.setControleur(controleur);
 		this.vueJour.setControleur(controleur);
