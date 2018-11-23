@@ -40,12 +40,13 @@ public class ControleurTemperature {
 	
 	public void afficherVues(NavigateurDesVues navigateur) {
 		this.navigateur = navigateur;
+		this.navigateur.naviguerVersVueAccueil();
+
 		this.vueAccueil = navigateur.getVueAccueil();
 		this.vueAnnee = navigateur.getVueAnnee();
 		this.vueMois = navigateur.getVueMois();
 		this.vueJour = navigateur.getVueJour();
 		
-		//this.navigateur.naviguerVersVueAccueil();
 		
 		/*List<Temperature> listeTemperatures = temperatureDAO.montrerListeTemperature();
 		vueJour.afficherListeTemperature(listeTemperatures);

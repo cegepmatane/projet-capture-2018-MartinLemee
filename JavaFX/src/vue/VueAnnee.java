@@ -1,15 +1,11 @@
 package vue;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.sql.Struct;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -34,7 +30,6 @@ public class VueAnnee extends Scene {
 	private ControleurTemperature controleur = null;
 
 	protected GridPane grilleTemperature;
-	private Label valeurMois, valeurTemperature;
 	private Button retour;
 	
 	public void setControleur(ControleurTemperature controleur) {
@@ -58,9 +53,21 @@ public class VueAnnee extends Scene {
 		Annee annee = valeurMeteo(urlXml("http://167.114.152.43/PHP/2018/"));
 		
 		this.grilleTemperature.getChildren().clear();
-		this.grilleTemperature.add(new Label("Mois"),0,0);
-		this.grilleTemperature.add(new Label("Temperature(°C)"),0,1);
-		this.grilleTemperature.add(this.retour, 0, 2);
+		this.grilleTemperature.add(new Label("Températures pour l'année "),0,0);
+		this.grilleTemperature.add(new Label(annee.getAnnee()),1,0);
+		
+		int rand = 1;
+		for (Mois unMois : annee.getLesMois()) {
+			this.grilleTemperature.add(new Label("Mois: " + unMois.getMois()),0,rand);
+			for (Temperature uneTemperature : unMois.getLesTemperatures()) {
+				this.grilleTemperature.add(new Label("Max: " + uneTemperature.getMax()),1,rand+1);
+				this.grilleTemperature.add(new Label("Min: " + uneTemperature.getMin()),1,rand+2);
+				this.grilleTemperature.add(new Label("Moyenne: " + uneTemperature.getMoyenne()),1,rand+3);
+			}
+			rand += 4;
+		}
+		
+		this.grilleTemperature.add(this.retour, 0, rand);
 	}
 	
 	public String urlXml(String urlXml) {
@@ -116,7 +123,7 @@ public class VueAnnee extends Scene {
 				Temperature uneTemperature = new Temperature();
 				
 	            moisTrouve = doc.getElementsByTagName("mois").item(i).getTextContent();
-	            System.out.println("mois trouve: " + moisTrouve);
+	            //System.out.println("mois trouve: " + moisTrouve);
 	            unMois.setMois(moisTrouve);
 	            
 	            max = doc.getElementsByTagName("max").item(i).getTextContent();
@@ -139,7 +146,6 @@ public class VueAnnee extends Scene {
 		} catch (Exception e) {
 		    e.printStackTrace();
 		}
-		System.out.println("mois choisi: " + uneAnne.getLesMois().get(0).getMois());
 		return uneAnne;
 	}
 

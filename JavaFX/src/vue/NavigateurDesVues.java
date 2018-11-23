@@ -37,9 +37,6 @@ public class NavigateurDesVues extends Application{
 		this.vueAnnee.setControleur(controleur);
 		this.vueMois.setControleur(controleur);
 		this.vueJour.setControleur(controleur);
-		//stade.setScene(this.vueAccueil);
-		//stade.setScene(null);
-		//stade.show();
 	}
 
 	public VueAccueil getVueAccueil() {
