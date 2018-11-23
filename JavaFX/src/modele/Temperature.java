@@ -1,40 +1,39 @@
 package modele;
 
-import java.util.Date;
-
 public class Temperature {
-	
-	protected int id;
-	protected double temperature;
-	protected Date date;
-	
-	public Temperature(double temperature, Date date) {
+
+	protected String max;
+	protected String min;
+	protected String moyenne;
+
+	public Temperature() {
 		super();
-		this.temperature = temperature;
-		this.date = date;
 	}
 
-	public int getId() {
-		return id;
+	public String getMax() {
+		return max;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setMax(String max) {
+		this.max = max;
 	}
 
-	public double getTemperature() {
-		return temperature;
+	public String getMin() {
+		return min;
 	}
 
-	public void setTemperature(double temperature) {
-		this.temperature = temperature;
+	public void setMin(String min) {
+		this.min = min;
 	}
 
-	public Date getDate() {
-		return date;
+	public String getMoyenne() {
+		return moyenne;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setMoyenne(String moyenne) {
+		this.moyenne = moyenne;
 	}
+	
+	
+	
 }
