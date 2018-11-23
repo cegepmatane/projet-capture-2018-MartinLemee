@@ -16,8 +16,7 @@
 
 <meteo>
 	<annee><?=$_GET['annee']?></annee>
-	<?php foreach($listeTemperature as $temperature) 
-	{ ?>
+	<?php foreach($listeTemperature as $temperature) { ?>
 	<mois><?=$temperature->mois?></mois>
 	<temperature>
 		<max><?=$temperature->temperaturemaximum?></max>
@@ -26,6 +25,3 @@
 	</temperature>
 	<?php } ?>
 </meteo>
-
-
-

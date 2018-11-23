@@ -57,6 +57,3 @@
 		<moyenne><?=$calculTemperature[0]->temperaturemoyenne?></moyenne>
 	</temperature>
 </meteo>
-
-
-

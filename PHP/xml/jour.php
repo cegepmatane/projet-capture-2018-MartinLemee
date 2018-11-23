@@ -17,13 +17,11 @@
 	?>
 
 <meteo>
-	<jour><?=$listeTemperature[0]->annee?>-<?=$listeTemperature[0]->mois?>-<?=$listeTemperature[0]->jour?></jour>
-	<?php foreach($listeTemperature as $temperature) 
-	{ ?>
+	<annee><?=$listeTemperature[0]->annee?>?></annee>
+	<mois><?=$listeTemperature[0]->mois?></mois>
+	<jour><?=$listeTemperature[0]->jour?></jour>
+	<?php foreach($listeTemperature as $temperature) { ?>
 	<heure><?=$temperature->heure?></heure>
 	<temperature><?=$temperature->temperature?></temperature>
 	<?php } ?>
 </meteo>
-
-
-
