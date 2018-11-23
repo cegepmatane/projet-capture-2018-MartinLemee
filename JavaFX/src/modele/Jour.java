@@ -7,6 +7,7 @@ public class Jour {
 	protected String jour;
 	protected String mois;
 	protected String annee;
+	protected ArrayList<Heure> lesHeures;
 	protected ArrayList<Temperature> lesTemperatures;
 	
 	public Jour() {
@@ -36,6 +37,21 @@ public class Jour {
 	public void setAnnee(String annee) {
 		this.annee = annee;
 	}
+	
+	public ArrayList<Heure> getLesHeures() {
+		return lesHeures;
+	}
+
+	public void setLesHeures(ArrayList<Heure> lesHeures) {
+		this.lesHeures = lesHeures;
+	}
+	
+	public void addUneHeure(Heure uneHeure){
+        if (lesHeures == null){
+            lesHeures = new ArrayList<Heure>();
+        }
+        lesHeures.add(uneHeure);
+    }
 
 	public ArrayList<Temperature> getLesTemperatures() {
 		return lesTemperatures;
