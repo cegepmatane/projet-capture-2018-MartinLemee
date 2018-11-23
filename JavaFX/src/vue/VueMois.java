@@ -79,8 +79,8 @@ public class VueMois extends Scene{
 			   HttpURLConnection request1 = (HttpURLConnection) url.openConnection();
 			   request1.setRequestMethod("GET");
 			   		
-			   String code = String.valueOf(request1.getResponseCode());
-			   System.out.println("Error code "+code);
+			   //String code = String.valueOf(request1.getResponseCode());
+			   //System.out.println("Error code "+code);
 			   
 			   InputStream is = request1.getInputStream();
 
@@ -89,7 +89,7 @@ public class VueMois extends Scene{
 			   while ((line = bufferedReader.readLine()) != null) {
 				   xml += line + "\n";
 			   }
-			   System.out.println(xml);
+			   //System.out.println(xml);
 			   
 			   return xml;
 			   
