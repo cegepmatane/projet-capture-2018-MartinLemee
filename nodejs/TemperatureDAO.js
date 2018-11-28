@@ -1,5 +1,5 @@
 var postgresql = require('pg');
-var chaineDeConnection = 'postgres://postgres:adminadmin@localhost:5432/meteo';
+var chaineDeConnection = 'postgres://root:root@localhost:5432/meteo';
 
 exports.listerTemperature = async function()
 {
@@ -38,7 +38,7 @@ exports.ajouterTemperature = async function(temperature)
     console.log("TemperatureDAO.ajouterTemperature()");
     var basededonnees = new postgresql.Client(chaineDeConnection);
     await basededonnees.connect();
-    var sql = 'INSERT INTO capteurtemperature(temperature, moment) VALUES('+ temperature + ', "now")';
+    var sql = 'INSERT INTO capteurtemperature(temperature, moment) VALUES('+ temperature + ', NOW())';
     console.log(sql);
     var curseurListeTemperature = await basededonnees.query(sql);
 	  var temperature = curseurListeTemperature.rows[0];
