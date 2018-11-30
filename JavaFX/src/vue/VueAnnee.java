@@ -30,6 +30,7 @@ public class VueAnnee extends Scene {
 	private ControleurTemperature controleur = null;
 
 	protected GridPane grilleTemperature;
+	private String monAnnee = "2018";
 	private Button retour;
 	
 	public void setControleur(ControleurTemperature controleur) {
@@ -50,7 +51,8 @@ public class VueAnnee extends Scene {
 			}
 		});
 		
-		Annee annee = valeurMeteo(urlXml("http://167.114.152.43/PHP/2018/"));
+		System.out.println(monAnnee);
+		Annee annee = valeurMeteo(urlXml("http://167.114.152.43/PHP/" + monAnnee));
 		
 		this.grilleTemperature.getChildren().clear();
 		this.grilleTemperature.add(new Label("Températures pour l'année "),0,0);
@@ -68,6 +70,10 @@ public class VueAnnee extends Scene {
 		}
 		
 		this.grilleTemperature.add(this.retour, 0, rand);
+	}
+	
+	public void getDate(String annee) {
+		monAnnee = annee;
 	}
 	
 	public String urlXml(String urlXml) {

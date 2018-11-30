@@ -27,6 +27,9 @@ import modele.Jour;
 public class VueJour extends Scene{
 	
 	protected GridPane grilleTemperature;
+	private String monAnnee = "2018";
+	private String monMois = "11";
+	private String monJour = "19";
 	private Button retour;
 	
 	private ControleurTemperature controleur = null;
@@ -49,7 +52,7 @@ public class VueJour extends Scene{
 			}
 		});
 		
-		Jour jour = valeurMeteo(urlXml("http://167.114.152.43/PHP/2018/11/19"));
+		Jour jour = valeurMeteo(urlXml("http://167.114.152.43/PHP/" + monAnnee + "/" + monMois + "/" + monJour));
 		
 		this.grilleTemperature.getChildren().clear();
 		this.grilleTemperature.add(new Label("Date :  "),0,0);
@@ -64,6 +67,13 @@ public class VueJour extends Scene{
 		}
 		
 		this.grilleTemperature.add(this.retour, 0, rand);	
+	}
+	
+	
+	public void getDate(String annee, String mois, String jour) {
+		monAnnee = annee;
+		monMois = mois;
+		monJour = jour;
 	}
 	
 	public String urlXml(String urlXml) {

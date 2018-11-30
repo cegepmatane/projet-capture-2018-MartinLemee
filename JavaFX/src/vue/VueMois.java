@@ -30,6 +30,8 @@ public class VueMois extends Scene{
 	private ControleurTemperature controleur = null;
 
 	protected GridPane grilleTemperature;
+	private String monAnnee = "2018";
+	private String monMois = "11";
 	private Button retour;
 	
 	public void setControleur(ControleurTemperature controleur) {
@@ -50,7 +52,7 @@ public class VueMois extends Scene{
 			}
 		});
 		
-		Mois mois = valeurMeteo(urlXml("http://167.114.152.43/PHP/2018/11"));
+		Mois mois = valeurMeteo(urlXml("http://167.114.152.43/PHP/" + monAnnee + "/" + monMois));
 		
 		this.grilleTemperature.getChildren().clear();
 		this.grilleTemperature.add(new Label("Date :  "),0,0);
@@ -69,6 +71,11 @@ public class VueMois extends Scene{
 		
 		this.grilleTemperature.add(this.retour, 0, rand);
 		
+	}
+	
+	public void getDate(String annee, String mois) {
+		monAnnee = annee;
+		monMois = mois;
 	}
 	
 	public String urlXml(String urlXml) {

@@ -7,11 +7,13 @@ import vue.VueJour;
 import vue.VueMois;
 
 public class ControleurTemperature {
+	
 	private NavigateurDesVues navigateur;
-	private VueAccueil vueAccueil;
-	private VueAnnee vueAnnee;
-	private VueMois vueMois;
-	private VueJour vueJour;
+	
+	private VueAccueil vueAccueil = null;
+	private VueAnnee vueAnnee = null;
+	private VueMois vueMois = null;
+	private VueJour vueJour = null;
 	
 
 	private static ControleurTemperature instance = null;
@@ -26,15 +28,18 @@ public class ControleurTemperature {
 		this.navigateur.naviguerVersVueAccueil();
 	}
 	
-	public void notifierNaviguerVueJour(){
+	public void notifierNaviguerVueJour(String annee, String mois, String jour){
+		this.vueJour.getDate(annee, mois, jour);
 		this.navigateur.naviguerVersVueJour();
 	}
 	
-	public void notifierNaviguerVueMois(){
+	public void notifierNaviguerVueMois(String annee, String mois){
+		this.vueMois.getDate(annee, mois);
 		this.navigateur.naviguerVersVueMois();
 	}
 	
-	public void notifierNaviguerVueAnnee(){
+	public void notifierNaviguerVueAnnee(String annee){
+		this.vueAnnee.getDate(annee);
 		this.navigateur.naviguerVersVueAnnee();
 	}
 	

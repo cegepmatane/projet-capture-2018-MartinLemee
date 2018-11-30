@@ -9,6 +9,8 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.scene.control.Label;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 
@@ -65,7 +67,24 @@ public class VueAccueil extends Scene {
 		this.boutonRechercher.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				controleur.notifierNaviguerVueJour();
+				
+				if(selectAnnee.getValue() != null) {
+					if(selectMois.getValue() != null) {
+						if(selectJour.getValue() != null) {
+							controleur.notifierNaviguerVueJour(selectAnnee.getValue(), selectMois.getValue(), selectJour.getValue());
+						}
+						else controleur.notifierNaviguerVueMois(selectAnnee.getValue(), selectMois.getValue());
+					}
+					else controleur.notifierNaviguerVueAnnee(selectAnnee.getValue());
+				}
+				else {
+					Alert alert = new Alert(AlertType.INFORMATION);
+					alert.setTitle("Information");
+					alert.setHeaderText(null);
+					alert.setContentText("Vous devez au moins choisir une année.");
+
+					alert.showAndWait();
+				}
 			}
 		});
 		
