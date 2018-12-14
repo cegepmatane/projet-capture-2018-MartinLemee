@@ -8,3 +8,5 @@ https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat
 Température https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat/8
 
 Exemples variés https://github.com/RPi-Distro/python-sense-hat/blob/master/examples/README.md
+
+https://www.mathworks.com/help/supportpkg/raspberrypi/ug/getting-the-raspberry_pi-ip-address.html
