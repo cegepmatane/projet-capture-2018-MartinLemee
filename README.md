@@ -12,3 +12,5 @@ Exemples variés https://github.com/RPi-Distro/python-sense-hat/blob/master/exam
 https://www.mathworks.com/help/supportpkg/raspberrypi/ug/getting-the-raspberry_pi-ip-address.html
 
 https://stackoverflow.com/questions/36516183/what-should-i-use-instead-of-urlopen-in-urllib3
+
+Solution finale pour l'encodage du json : https://urllib3.readthedocs.io/en/latest/user-guide.html
