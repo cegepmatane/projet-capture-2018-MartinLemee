@@ -1,6 +1,12 @@
 # projet-capture-2018-Temperature
 Martin, Gabriel, Valere, Alexandre
 
+## Installation sur le raspberry pi
+
+- apt install sense-hat
+- pip install requests
+
+## Sources
 https://pythonhosted.org/sense-hat/
 
 https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat
